@@ -24,4 +24,10 @@ public class PontoCartesiano{
         this.y = y;
     }
     
+    public double distance(PontoCartesiano outro) {
+        double x2 = this.x - outro.x;
+        double y2 = this.y - outro.y;
+        return Math.sqrt(x2*x2 + y2*y2);
+    }
+    
 }
