@@ -18,6 +18,11 @@ public class Main{
 
     vetAlunos.cheio();
 
+    vetAlunos.remove(aluninho1);
+
+    System.out.println(vetAlunos.contem(aluninho1));
+
+
 
     }
 }

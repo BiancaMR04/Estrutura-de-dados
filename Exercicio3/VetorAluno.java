@@ -45,12 +45,12 @@ public class VetorAluno implements IVetorAluno{
 
     public boolean remove(Aluno aluno){
         int indice = -1;
-        for(int i=0; i < totalAlunos; i++) //faz a busca
+        for(int i=0; i < totalAlunos; i++) 
         if (aluno == this.alunos[i])
         {indice = i; break; }
-        if (indice != -1){ //achou o elemento
-        /*for(int i=indice; i<(numElementos-1); i++)
-        vetorInt[i] = vetorInt[i+1];*/
+        if (indice != -1){ 
+        for(int i=indice; i<(totalAlunos-1); i++)
+        alunos[i] = alunos[i+1];
         totalAlunos--;
         return true;
         }
