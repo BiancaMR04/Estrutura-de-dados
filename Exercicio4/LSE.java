@@ -44,15 +44,15 @@ public class LSE implements ILSE {
             p = p.getProximo();
         }
 
-    if (p==null) // não achou, então não faz nada e retorna false
-    return false;
+        if (p==null) // não achou, então não faz nada e retorna false
+            return false;
 
-    if (ant==null) //retira info do início
-    inicio = p.getProximo();
+        if (ant==null) //retira info do início
+            inicio = p.getProximo();
 
-    else
-    ant.setProximo(p.getProximo());
-    return true;
+        else
+            ant.setProximo(p.getProximo());
+            return true;
 
     }
 
@@ -68,7 +68,8 @@ public class LSE implements ILSE {
     return tamanho;
     }
 
-    public String imprimirLista() {
+
+    public String imprimeLista() {
 
         String lista = "";
 
