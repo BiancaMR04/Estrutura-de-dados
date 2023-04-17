@@ -1,6 +1,6 @@
 package Exercicio5;
 
-public class LSE {
+public class LSE implements ILSE{
     
     private Noh inicio;
     private Noh fim;

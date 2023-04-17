@@ -1,6 +1,6 @@
 package Exercicio6;
 
-import Exercicio4.ILSE;
+import Exercicio6.ILSE;
 
 public class LSE implements ILSE{
     
