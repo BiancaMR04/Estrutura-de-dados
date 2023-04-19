@@ -60,6 +60,29 @@ public class LDE implements ILDE{
             return true;
         }
 
+
+        public boolean removeContrario(int info) {
+        Noh p = fim;
+            while (p!=null && p.getInfo() != info)
+            p = p.getAnterior();
+                if (p==null)
+                return false;
+
+                if (p == fim){
+                inicio = p.Anterior();
+
+                    if (fim != null) fim.setProximo(null);
+                    else fim = null;
+                } else if(p.getAnterior() == null){
+                    p.getProximo().setAnterior(null);
+                    fim = p.getProximo();
+                    } else {
+                        p.getProximo().setAnterior(p.getAnterior());
+                        p.getAnterior().setProximo(p.getProximo());
+                    }
+            return true;
+        }
+
         public boolean estahVazia() { 
             return inicio == null;
        }
