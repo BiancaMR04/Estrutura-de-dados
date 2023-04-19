@@ -1,13 +1,13 @@
 package Exercicio6;
 
-import Exercicio6.ILSE;
+import Exercicio6.ILDE;
 
-public class LSE implements ILSE{
+public class LDE implements ILDE{
     
     private Noh inicio;
     private Noh fim;
 
-    public LSE(){
+    public LDE(){
         this.inicio = null;
         this.fim = null;
     }
