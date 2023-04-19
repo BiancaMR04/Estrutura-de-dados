@@ -4,7 +4,7 @@ public class Main {
     
     public static void main(String[] args) {
 
-        ILSE vetAlunos = new LSE();
+        ILDE vetAlunos = new LDE();
 
         Aluno aluninho1 = new Aluno("leo", 17, 8);
         Aluno aluninho2 = new Aluno("joao", 16, 5);
