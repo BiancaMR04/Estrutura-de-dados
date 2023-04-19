@@ -1,11 +1,11 @@
 package Exercicio5;
 
-public class LSE implements ILSE{
+public class LDE implements ILDE{
     
     private Noh inicio;
     private Noh fim;
 
-    public LSE(){
+    public LDE(){
         this.inicio = null;
         this.fim = null;
     }
