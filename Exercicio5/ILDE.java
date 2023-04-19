@@ -1,6 +1,6 @@
 package Exercicio5;
 
-public interface ILSE {
+public interface ILDE {
 
     public void insereInicio(int info);
     public void insereFim(int info);
