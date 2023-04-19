@@ -69,7 +69,7 @@ public class LDE implements ILDE{
                 return false;
 
                 if (p == fim){
-                inicio = p.Anterior();
+                fim = p.getAnterior();
 
                     if (fim != null) fim.setProximo(null);
                     else fim = null;
