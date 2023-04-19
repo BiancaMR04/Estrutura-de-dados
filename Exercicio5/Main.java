@@ -4,7 +4,7 @@ public class Main {
     
     public static void main(String[] args) {
 
-        ILSE listaN = new LSE();
+        ILDE listaN = new LDE();
     
         listaN.insereFim(1);
         listaN.insereInicio(2);
