@@ -33,13 +33,13 @@ public class Vetor{
         return false;
     }
 
-    public int rand() {
-        return (new Random()).nextInt();
+    public int getI(int i){
+        return this.numeros[i];
     }
 
     public void popularAleatorio(){
         for (int i = 0; i < numeros.length; i++) {
-            adiciona(rand());
+            adiciona(rand.nextInt(100));
          }
 
     }
@@ -59,6 +59,7 @@ public class Vetor{
             }
         }
     }
+
 
     public int maiorIterativo(){
         int max = numeros[0];

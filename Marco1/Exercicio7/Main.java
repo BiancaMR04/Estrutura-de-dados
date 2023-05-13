@@ -3,15 +3,23 @@ import Exercicio7.Vetor;
 
 public class Main {
 
+    public static void main(String[] args) {
+
     Vetor vetor = new Vetor(1000);
     
     vetor.popularAleatorio();
+    long elapsed = 0;
 
-    System.out.println(vetor.maiorNrec(vetor, 0, vetor.total()-1));
-    System.out.println(System.nanoTime());
+    long start = System.nanoTime();
+    System.out.println(vetor.maiorNrec(vetor, 0, 999));
+    System.out.println(elapsed = System.nanoTime() - start);
 
+    long elapsed2 = 0;
+
+    long start2 = System.nanoTime();
     System.out.println(vetor.maiorIterativo());
-    System.out.println(System.nanoTime());
+    System.out.println(elapsed2 = System.nanoTime() - start2);
+    }
 
     
 }
