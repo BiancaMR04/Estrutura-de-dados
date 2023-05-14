@@ -31,24 +31,24 @@ public class Vetor{
 
         }else{
 
-        int indice = -1;
+            int indice = -1;
 
-        for(int i=0; i < total; i++){
-            if (numero < this.numeros[i]){
-                indice = i; 
-                break; 
-            }
-        }
-
-        if (indice != -1){ 
-            for(int i=(total); i>indice; i--){
-                numeros[i] = numeros[i-1];
+            for(int i=0; i < total; i++){
+                if (numero < this.numeros[i]){
+                    indice = i; 
+                    break; 
+                }
             }
 
-        numeros[indice] = numero;
-        total++;
+            if (indice != -1){ 
+                for(int i=(total); i>indice; i--){
+                    numeros[i] = numeros[i-1];
+                }
+
+            numeros[indice] = numero;
+            total++;
+            }
         }
-    }
     }
 
     public int tamanho(){
