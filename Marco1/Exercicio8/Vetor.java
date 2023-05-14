@@ -18,6 +18,39 @@ public class Vetor{
         total++;
     }
 
+    public void adicionaEmOrdem(int numero){
+        this.garanteEspaco();
+
+        if(total == 0){
+            numeros[0] = numero;
+            total++;
+
+        }else if(numero > numeros[total-1]){
+            numeros[total] = numero;
+            total++;
+
+        }else{
+
+        int indice = -1;
+
+        for(int i=0; i < total; i++){
+            if (numero < this.numeros[i]){
+                indice = i; 
+                break; 
+            }
+        }
+
+        if (indice != -1){ 
+            for(int i=(total); i>indice; i--){
+                numeros[i] = numeros[i-1];
+            }
+
+        numeros[indice] = numero;
+        total++;
+        }
+    }
+    }
+
     public int tamanho(){
         return total;
     }
@@ -48,25 +81,43 @@ public class Vetor{
 
     }
 
-    public void popularAleatorio(){
+    public void popularAleatorioEmOrdem(){
         for (int i = 0; i < numeros.length; i++) {
-            adicionas(rand.nextInt(100));
+            adicionaEmOrdem(rand.nextInt(100));
         }
     }
 
-    public int buscaRec(Vetor vetor, int inicio, int fim, int numero){
-        int meio=0, n1 = 0, n2 = 0;
-        if(inicio == fim && numeros[inicio] == numero){
+
+    public int maximoRec(Vetor vetor, int inicio, int fim){
+        int meio=0, max1 = 0, max2 = 0;
+        if(inicio == fim){
             return numeros[inicio];
         }else{
             meio = (inicio+fim)/2;
-            n1 = buscaRec(vetor, inicio, meio, numero);
-            n2 = buscaRec(vetor, meio+1, fim, numero);
-            if (n1 == numero){
-            return n1;
+            max1 = maximoRec(vetor, inicio, meio);
+            max2 = maximoRec(vetor, meio+1, fim);
+            if (max1 > max2){
+            return max1;
             }else{
-                return n2;
+                return max2;
             }
+        }
+
+    }
+
+    public int buscaRec(Vetor vetor, int inicio, int fim, int numero){
+        int meio=0;
+
+        if (inicio > fim) {
+            return -1;
+        }
+        meio= (inicio + fim) / 2;
+        if (numeros[meio] == numero) {
+            return numeros[meio];
+        } else if (numeros[meio] > numero) {
+            return buscaRec(vetor, inicio, meio-1, numero); 
+        } else {
+            return buscaRec(vetor, meio+1, fim, numero);
         }
     }
 
@@ -77,7 +128,7 @@ public class Vetor{
         while (inicio <= fim){
             meio = (inicio + fim) / 2;
             if (this.numeros[meio] == valor){
-                return meio;
+                return numeros[meio];
             }else if (this.numeros[meio] > valor){
                 fim = meio - 1;
             }else{
@@ -87,22 +138,9 @@ public class Vetor{
         return -1;  
     }
 
-    public void adicionas(int numero){
-        int indice = -1;
-
-        for(int i=0; i < total; i++){ //faz a busca
-            if (numero> this.numeros[i]){
-                indice = i; 
-                break; 
-            }
-        }
-
-        if (indice != -1){ //achou o elemento
-            for(int i=(total+1); i>indice; i--){
-                numeros[i] = numeros[i-1];
-            }
-
-        numeros[indice] = numero;
+    public void imprime(){
+        for(int i=0; i < total; i++){
+            System.out.println(numeros[i]);
         }
     }
         
