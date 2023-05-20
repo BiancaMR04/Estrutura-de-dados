@@ -1,4 +1,4 @@
-package Exercicio8;
+package Exercicio9;
 
 import java.util.Random;
 
@@ -78,12 +78,7 @@ public class Vetor{
         novos[i] = this.numeros[i];
         this.numeros = novos;
         }
-    }
 
-    public void popularAleatorioEmOrdem(){
-        for (int i = 0; i < numeros.length; i++) {
-            adicionaEmOrdem(rand.nextInt(100));
-        }
     }
 
     public void popularAleatorio(){
@@ -143,23 +138,47 @@ public class Vetor{
         return -1;  
     }
 
-    public void ordena(){
-        int temp = 0;
-        for (int i = 0; i < numeros.length; i++){
-	        for (int j = i + 1; j < numeros.length; j++)
-		
-		        if (numeros[i] > numeros[j])
-		        {
-			        temp = numeros[i]; 	
-			        numeros[i] = numeros[j];
-			        numeros[j] = temp;					
-		        }
-        }
-    }
-
     public void imprime(){
         for(int i=0; i < total; i++){
             System.out.println(numeros[i]);
+        }
+    }
+
+    public void bubble_sort(){
+        for (int i = 0; i < this.total; i++){
+            for (int j = 0; j < this.total-1; j++){
+                if (this.numeros[j] > this.numeros[j+1]) {
+                    int aux = this.numeros[j];
+                    this.numeros[j] = this.numeros[j+1];
+                    this.numeros[j+1] = aux;
+                }
+            }
+        }
+    }
+
+    public void selection_sort(){
+        for (int i = 0; i < this.total; i++) {
+            int menor = i;
+            for (int j = i+1; j < this.total; j++){
+                if (this.numeros[j] < this.numeros[menor]){
+                    menor = j;
+                    int aux = numeros[i];
+                    this.numeros[i] = this.numeros[menor];
+                    this.numeros[menor] = aux;
+                }
+            }
+        }
+    }
+
+    public void insertion_sort() {
+        for (int i = 1; i < this.total; i++) {
+            int chave = this.numeros[i];
+            int j = i - 1;
+            while (j >= 0 && chave < this.numeros[j]) {
+                this.numeros[j + 1] = this.numeros[j];
+                j--;
+            }
+            this.numeros[j + 1] = chave;
         }
     }
         

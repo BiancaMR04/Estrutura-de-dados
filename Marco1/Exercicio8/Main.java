@@ -8,7 +8,8 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         Vetor vetor = new Vetor(10);
-        vetor.popularAleatorioEmOrdem();
+        vetor.popularAleatorio();
+        vetor.ordena();
         vetor.imprime();
         System.out.println("Máximo: " + vetor.maximoRec(vetor, 0, vetor.tamanho() - 1));
 
