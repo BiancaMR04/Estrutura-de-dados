@@ -1,5 +1,8 @@
 package Prova.Exercicio6;
 
+/*
+ * Implemente um método que insere números inteiros em uma lista duplamente encadeada de forma ordenada.
+ */
 public class Main {
     
     public static void main(String[] args){
