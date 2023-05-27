@@ -11,6 +11,7 @@ public class Main {
         list.insereFim(90);
         list.insereFim(20);
         list.insereFim(30);
+        list.insereFim(80);
         list.insereFim(50);
         list.insereFim(50);
         list.insereFim(60);
