@@ -1,3 +1,5 @@
+package Marco2.Trabalho2.LSE;
+
 public class Pilha implements IPilha {
 
     /**
