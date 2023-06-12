@@ -1,4 +1,4 @@
-package Exercicio11;
+package Marco2.Exercicio10;
 
 public interface IFila {
 
@@ -6,5 +6,6 @@ public interface IFila {
     public boolean remove();
     public boolean isEmpty();
     public int size();
-
+    public void print();
+    
 }

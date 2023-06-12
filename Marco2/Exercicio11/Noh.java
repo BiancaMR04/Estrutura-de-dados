@@ -1,4 +1,4 @@
-package Exercicio11;
+package Marco2.Exercicio11;
 
 public class Noh {
     
