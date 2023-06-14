@@ -36,21 +36,24 @@ public class MapaHashLSE {
      */
     public void put(int chave, Aluno valor) {
         this.verificaTamanho(chave);
-        int hash = hash(chave);
-        LSE alunos_lista = this.vetorLista[hash];
-        if (alunos_lista == null) {
-            alunos_lista = new LSE();
-            alunos_lista.insereInicio(valor);
-            this.vetorLista[hash] = alunos_lista;
-        } else {
-            for (Noh n = alunos_lista.getInicio(); n != null; n = n.getProximo()) {
-                if (n.getInfo().getMatricula() == chave) {
-                    n.setInfo(valor);
-                    return;
+        while (sondagem < vetorLista.length) {
+            int hash = (hash(chave) + sondagem) % vetorLista.length;
+            LSE alunos_lista = this.vetorLista[hash];
+            if (alunos_lista == null) {
+                alunos_lista = new LSE();
+                alunos_lista.insereInicio(valor);
+                this.vetorLista[hash] = alunos_lista;
+            } else {
+                for (Noh n = alunos_lista.getInicio(); n != null; n = n.getProximo()) {
+                    if (n.getInfo().getMatricula() == chave) {
+                        n.setInfo(valor);
+                        return;
+                    }
                 }
+                alunos_lista.insereInicio(valor);
             }
-            alunos_lista.insereInicio(valor);
         }
+        sondagem++;
     }
 
     /**
@@ -60,7 +63,7 @@ public class MapaHashLSE {
      * @return aluno com a chave passada
      */
     public Aluno get(int chave) {
-        int hash = hash(chave);
+        int hash = (hash(chave) + sondagem) % vetorLista.length;
         if (this.vetorLista[hash] == null) {
             return null;
         } else {
@@ -79,7 +82,7 @@ public class MapaHashLSE {
      * @param chave - matricula do aluno
      */
     public Aluno remove(int chave) {
-        int hash = hash(chave);
+        int hash = (hash(chave) + sondagem) % vetorLista.length;
         LSE alunos = this.vetorLista[hash];
         if (alunos == null) {
             return null;
@@ -102,7 +105,7 @@ public class MapaHashLSE {
      * @param chave - chave do aluno
      */
     public void verificaTamanho(int chave) {
-        int hash = hash(chave);
+        int hash = (hash(chave) + sondagem) % vetorLista.length;
 
         if (hash == vetorLista.length - 1) {
             reSize();
@@ -145,7 +148,7 @@ public class MapaHashLSE {
      * @return vetor de listas
      */
     public LSE[] getVetorLista() {
-        return vetorLista;  
+        return vetorLista;
     }
-    
+
 }
