@@ -132,20 +132,20 @@ public class MapaHashLSE {
         for (int i = 0; i < this.vetorLista.length; i++) {
             if (this.vetorLista[i] != null) {
                 for (Noh n = this.vetorLista[i].getInicio(); n != null; n = n.getProximo()) {
-                    put(n.getInfo().getMatricula(), n.getInfo());
                     remove(n.getInfo().getMatricula());
+                    put(n.getInfo().getMatricula(), n.getInfo());
                 }
             }
         }
     }
 
-    public void imprime() {
-        for (int i = 0; i < this.vetorLista.length; i++) {
-            if (this.vetorLista[i] != null) {
-                for (Noh n = this.vetorLista[i].getInicio(); n != null; n = n.getProximo()) {
-                    System.out.println(n.getInfo().getMatricula());
-                }
-            }
-        }
+    /**
+     * Retorna o vetor de listas
+     * 
+     * @return vetor de listas
+     */
+    public LSE[] getVetorLista() {
+        return vetorLista;  
     }
+    
 }

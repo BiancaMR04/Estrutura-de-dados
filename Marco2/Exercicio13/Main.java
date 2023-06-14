@@ -22,8 +22,6 @@ public class Main {
         mapa.put(a4.getMatricula(), a4);
         mapa.put(a5.getMatricula(), a5);
 
-        mapa.imprime();
-
         mapa.remove(3);
 
         System.out.println(mapa.get(1));
