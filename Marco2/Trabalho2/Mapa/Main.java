@@ -44,8 +44,8 @@ public class Main {
         System.out.println(mapa.get(10));
         System.out.println(mapa.get(11));
 
-        mapa.remove(1);
-        mapa.remove(2);
+        mapa.remove();
+        mapa.remove();
 
         System.out.println(mapa.get(1));
         System.out.println(mapa.get(2));

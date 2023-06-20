@@ -72,7 +72,7 @@ public class MapaHashVetor {
         int hash = (hash(elem) + sondagem) % vetor.length;
         Aluno aluno = this.vetor[hash];
         this.vetor[hash] = null;
-        elem = 
+        elem = hash-1;
         return aluno;
     }
 
@@ -113,7 +113,7 @@ public class MapaHashVetor {
             if(this.vetor[i] != null){
                 int chave = this.vetor[i].getMatricula();
                 Aluno aluno = this.vetor[i];
-                this.remove(chave);
+                this.remove();
                 this.put(chave, aluno);
             }
         }
