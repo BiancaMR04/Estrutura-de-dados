@@ -24,7 +24,8 @@ public class ABB {
 
     /**
      * @method isEmpty - Verifica se a árvore está vazia
-     * @return true - Se a árvore estiver vazia | false - Se a árvore não estiver vazia
+     * @return true - Se a árvore estiver vazia | false - Se a árvore não estiver
+     *         vazia
      */
     public boolean isEmpty() {
         return this.raiz == null;
@@ -58,9 +59,8 @@ public class ABB {
                     aux = aux.dir;
                 }
             }
-        } 
+        }
     }
-
 
     /**
      * @method recursiveAdd - Adiciona um elemento na árvore de forma recursiva
@@ -76,8 +76,8 @@ public class ABB {
 
     /**
      * @method recursiveAdd - Adiciona um elemento na árvore de forma recursiva
-     * @param node - Nó atual
-     * @param element - Elemento a ser adicionado 
+     * @param node    - Nó atual
+     * @param element - Elemento a ser adicionado
      */
     private void recursiveAdd(Noh node, int element) {
         if (element < node.valor) {
@@ -99,11 +99,11 @@ public class ABB {
         }
     }
 
-
     /**
      * @method search - Busca um elemento na árvore
      * @param element - Elemento a ser buscado
-     * @return true - Se o elemento for encontrado | false - Se o elemento não for encontrado
+     * @return true - Se o elemento for encontrado | false - Se o elemento não for
+     *         encontrado
      */
     public boolean search(int element) {
         if (isEmpty()) {
@@ -126,7 +126,8 @@ public class ABB {
     /**
      * @method recursiveSearch - Busca um elemento na árvore de forma recursiva
      * @param element - Elemento a ser buscado
-     * @return true - Se o elemento for encontrado | false - Se o elemento não for encontrado
+     * @return true - Se o elemento for encontrado | false - Se o elemento não for
+     *         encontrado
      */
     public boolean recursiveSearch(int element) {
         if (isEmpty()) {
@@ -138,9 +139,10 @@ public class ABB {
 
     /**
      * @method recursiveSearch - Busca um elemento na árvore de forma recursiva
-     * @param node - Nó atual
+     * @param node    - Nó atual
      * @param element - Elemento a ser buscado
-     * @return true - Se o elemento for encontrado | false - Se o elemento não for encontrado
+     * @return true - Se o elemento for encontrado | false - Se o elemento não for
+     *         encontrado
      */
     private boolean recursiveSearch(Noh node, int element) {
         if (node == null) {
@@ -152,6 +154,76 @@ public class ABB {
         } else {
             return recursiveSearch(node.dir, element);
         }
+    }
+
+    public Noh remove(int element) {
+
+        if(isEmpty()) {
+            return null;
+        }
+
+        Noh aux = this.raiz;
+
+        while (aux != null) {
+            if (element == aux.getValor()) {
+                break;
+            } else if (element < aux.getValor()) {
+                aux = aux.getEsq();
+            } else {
+                aux = aux.getDir();
+            }
+        }
+
+        if (aux == null) {
+            return null;
+        }
+
+        if (aux.getEsq() == null && aux.getDir() == null) {
+            if (aux == this.raiz) {
+                this.raiz = null;
+            } else {
+                if (aux.getPai().getEsq() == aux) {
+                    aux.getPai().setEsq(null);
+                } else {
+                    aux.getPai().setDir(null);
+                }
+            }
+        } else if (aux.getEsq() != null && aux.getDir() == null) {
+            if (aux == this.raiz) {
+                this.raiz = aux.getEsq();
+            } else {
+                if (aux.getPai().getEsq() == aux) {
+                    aux.getPai().setEsq(aux.getEsq());
+                } else {
+                    aux.getPai().setDir(aux.getEsq());
+                }
+            }
+        } else if (aux.getEsq() == null && aux.getDir() != null) {
+            if (aux == this.raiz) {
+                this.raiz = aux.getDir();
+            } else {
+                if (aux.getPai().getEsq() == aux) {
+                    aux.getPai().setEsq(aux.getDir());
+                } else {
+                    aux.getPai().setDir(aux.getDir());
+                }
+            }
+        } else {
+            Noh sucessor = aux.getDir();
+            while (sucessor.getEsq() != null) {
+                sucessor = sucessor.getEsq();
+            }
+
+            aux.setValor(sucessor.getValor());
+
+            if (sucessor.getPai().getEsq() == sucessor) {
+                sucessor.getPai().setEsq(null);
+            } else {
+                sucessor.getPai().setDir(null);
+            }
+        }
+
+        return aux;
     }
 
     /**
@@ -177,6 +249,29 @@ public class ABB {
         }
     }
 
+    public void posOrdem() {
+        posOrdem(this.raiz);
+    }
 
+    private void posOrdem(Noh node) {
+        if (node != null) {
+            posOrdem(node.esq);
+            posOrdem(node.dir);
+            System.out.println(node.valor);
+            // note que a impressão só ocorre depois
+        }
+    }
+
+    public void emOrdem() {
+        emOrdem(this.raiz);
+    }
+
+    private void emOrdem(Noh node) {
+        if (node != null) {
+            emOrdem(node.esq);
+            System.out.println(node.valor);
+            emOrdem(node.dir);
+        }
+    }
 
 }

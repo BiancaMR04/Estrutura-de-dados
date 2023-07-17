@@ -1,11 +1,12 @@
 package Marco3.Exercicio15;
 
 public class Main {
-    
+
     public static void main(String[] args) {
+
         ABB arvore = new ABB();
+
         arvore.add(10);
-        arvore.add(5);
         arvore.add(15);
         arvore.add(3);
         arvore.add(7);
@@ -18,23 +19,25 @@ public class Main {
         arvore.add(11);
         arvore.add(13);
         arvore.add(16);
+        arvore.add(10);
+        arvore.add(5);
 
-        long start = System.nanoTime();
-        arvore.add(18);
-        long end = System.nanoTime() - start;
-        System.out.println("Tempo de execução do método add iterativo: " + end + " nanosegundos");
-
-        start = System.nanoTime();
-        arvore.recursiveAdd(19);
-        end = System.nanoTime() - start;
-        System.out.println("Tempo de execução do método add recursivo: " + end + " nanosegundos");
-
-
-        System.out.println("Árvore binária de busca:");
+        System.out.println("Árvore: ");
         arvore.imprimePreOrdem();
 
-        System.out.println("Buscando o elemento 10:");
-        System.out.println(arvore.search(10));
+        arvore.add(2);
+        arvore.add(0);
+        arvore.add(9);
+        arvore.add(1);
+
+        System.out.println("Árvore: ");
+        arvore.emOrdem();
+
+        System.out.println("Deletando 5");
+        arvore.remove(5);
+
+        System.out.println("Árvore: ");
+        arvore.posOrdem();
 
     }
 }
